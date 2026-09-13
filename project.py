@@ -3,23 +3,15 @@
 import subprocess
 from pathlib import Path
 
-n = 2
-
 m = [
-    """
-    目標1
-    """,
+    ,
 
-    """
-    目標2
-    """,
+    "目標2",
 
-    """
-    目標3
-    """
+    "目標3"
 ]
 
-print(m[n])
+print(m[0])
 
 if input("push?[y/n]") == "y":
 
@@ -27,11 +19,9 @@ if input("push?[y/n]") == "y":
     path = Path(__file__)
     text = path.read_text()
 
-    new_n = n + 1
-
     text = text.replace(
-        f"n = {n}",
-        f"n = {new_n}",
+        f"\"{m[0]}\"",
+        "",
         1
     )
 
@@ -41,7 +31,7 @@ if input("push?[y/n]") == "y":
     subprocess.run(["git", "add", "."], check=True)
 
     subprocess.run(
-        ["git", "commit", "-m", m[n]],
+        ["git", "commit", "-m", m[0]],
         check=True
     )
 
