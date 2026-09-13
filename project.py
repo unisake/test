@@ -4,6 +4,7 @@ import subprocess
 from pathlib import Path
 
 m = [
+        "目標5"
     ]
 
 print(m[0])
