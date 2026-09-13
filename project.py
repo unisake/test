@@ -3,7 +3,7 @@
 import subprocess
 from pathlib import Path
 
-n = 0
+n = 1
 
 m = [
     """
@@ -19,18 +19,9 @@ m = [
     """
 ]
 
-print(m[n])  # 目標の確認
+print(m[n])
 
 if input("push?[y/n]") == "y":
-
-    subprocess.run(["git", "add", "."], check=True)
-
-    subprocess.run(
-        ["git", "commit", "-m", m[n]],
-        check=True
-    )
-
-    subprocess.run(["git", "push"], check=True)
 
     # 自分自身を書き換える
     path = Path(__file__)
@@ -43,3 +34,15 @@ if input("push?[y/n]") == "y":
         f"n = {new_n}",
         1
     )
+
+    path.write_text(text)
+
+    # 書き換えた状態をGitに登録
+    subprocess.run(["git", "add", "."], check=True)
+
+    subprocess.run(
+        ["git", "commit", "-m", m[n]],
+        check=True
+    )
+
+    subprocess.run(["git", "push"], check=True)
