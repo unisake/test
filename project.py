@@ -4,10 +4,7 @@ import subprocess
 from pathlib import Path
 
 m = [
-    
-
-    "目標3",
-]
+    ]
 
 print(m[0])
 
@@ -18,7 +15,7 @@ if input("push?[y/n]") == "y":
     text = path.read_text()
 
     text = text.replace(
-        f"\"{m[0]}\",",
+        f"\"{m[0]}\",\n",
         "",
         1
     )
